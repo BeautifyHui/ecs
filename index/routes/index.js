@@ -52,7 +52,7 @@ router.post('/login',function(req,res){
 
 //获取数据库内商品情况
 router.get('/goods',function(req,res){
-	var good = res.query.good;
+	var good = um.good;
 	res.send(good);
 })
 module.exports = router;
