@@ -1,0 +1,44 @@
+.serch {
+  height: 31px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background: #E9E9E9;
+  font-size: 14px;
+  margin: 10px 0; }
+  .serch i {
+    font-size: 20px;
+    color: #575757; }
+  .serch em {
+    font-style: normal;
+    line-height: 31px; }
+  .serch input {
+    outline: none;
+    margin: 0 10px; }
+  .serch button {
+    padding: 4px 12px;
+    background: red;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    border: none; }
+
+table {
+  text-align: center;
+  width: 100%; }
+  table thead tr {
+    height: 45px;
+    background: #E7E1CD; }
+  table tbody tr {
+    height: 59px;
+    background: #F7F7F7; }
+    table tbody tr .icon-duigou {
+      color: lawngreen; }
+    table tbody tr .icon-error {
+      color: red; }
+  table tbody .make {
+    color: #00AAFF; }
+    table tbody .make i {
+      font-size: 18px;
+      font-weight: 900; }
+
+/*# sourceMappingURL=list.css.map */
