@@ -3,70 +3,80 @@ html.body {
 
 #addcon {
   margin-top: 10px;
-  border: 1px solid #CCCCCC; }
+  border: 1px solid #CCCCCC;
+  height: 100%; }
   #addcon ul {
     width: 100%;
     background: #efefef;
     height: 40px; }
     #addcon ul li {
-      list-style: none;
       float: left;
+      list-style: none;
       padding: 0 20px;
       line-height: 40px;
-      font-size: 12px; }
-    #addcon ul li:nth-of-type(1) {
-      margin-left: 8px;
+      font-size: 12px;
+      color: #222; }
+  #addcon li:nth-of-type(1) {
+    margin-left: 8px;
+    font-weight: 900;
+    background: #fefefe; }
+
+form {
+  background: #fff;
+  width: 100%;
+  padding: 14px 0 45px;
+  height: 100%; }
+  form .btn {
+    background: #91C4D0;
+    color: #335B64;
+    font-weight: 400; }
+  form button {
+    font-size: 12px; }
+  form div {
+    margin: 0 auto;
+    width: auto;
+    position: relative;
+    width: 610px;
+    clear: both; }
+    form div span {
+      font-size: 12px;
+      color: #7F7F7F;
+      line-height: 20px;
+      padding-right: 8px;
+      float: left;
+      margin-top: 10px; }
+    form div span:nth-of-type(1) {
+      padding: 0 8px;
+      line-height: 40px;
+      float: left;
       font-weight: 900;
-      background: #fefefe; }
-  #addcon form {
-    background: #fff;
-    width: 100%;
-    padding: 14px 0 45px; }
-    #addcon form div {
-      margin: 0 auto;
-      width: auto;
-      position: relative;
-      width: 610px;
-      clear: both; }
-      #addcon form div span {
-        font-size: 12px;
-        color: #7F7F7F;
-        line-height: 20px;
-        padding-right: 8px;
-        float: left;
-        margin-top: 10px; }
-      #addcon form div span:nth-of-type(1) {
-        padding: 0 8px;
-        line-height: 40px;
-        float: left;
-        font-size: 14px;
-        color: #333;
-        margin: 0; }
-      #addcon form div input {
-        width: 195px;
-        height: 19px;
-        float: left;
-        margin: 10px 50px 0 0; }
-      #addcon form div div {
-        width: 10px;
-        height: 10px;
-        background: #fff;
-        border: 1px solid #969896;
-        float: left;
-        position: absolute;
-        left: 320px;
-        top: 20px; }
-      #addcon form div select {
-        margin-top: 12px; }
-      #addcon form div em {
-        color: red;
-        line-height: 40px; }
-      #addcon form div i {
-        color: green;
-        float: left;
-        font-size: 24px;
-        line-height: 40px;
-        width: 18px;
-        height: 40px; }
+      color: #333;
+      margin: 0; }
+    form div input {
+      width: 195px;
+      height: 19px;
+      float: left;
+      margin: 10px 50px 0 0; }
+    form div div {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border: 1px solid #969896;
+      float: left;
+      position: absolute;
+      left: 320px;
+      top: 20px; }
+    form div select {
+      margin-top: 12px; }
+    form div em {
+      color: red;
+      line-height: 40px; }
+    form div i {
+      color: green;
+      float: left;
+      font-size: 24px;
+      line-height: 40px;
+      width: 18px;
+      height: 40px; }
 
 /*# sourceMappingURL=add.css.map */

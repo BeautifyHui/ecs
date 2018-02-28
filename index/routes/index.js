@@ -11,6 +11,9 @@ router.get('/list', function(req, res, next) {
 router.get('/add',function(req,res,next){
 	res.render('add')
 })
+router.get('/normal',function(req,res,next){
+	res.render('normal')
+})
 //获取用户名密码进行比对，页面跳转
 router.post('/login',function(req,res){
 	var name=req.body.username;

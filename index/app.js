@@ -10,9 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 //连接数据库
-//var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 //启动数据库
-//mongoose.connect("mongoodb://localhost/uesr");
+mongoose.connect("mongoodb://localhost/uesr");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

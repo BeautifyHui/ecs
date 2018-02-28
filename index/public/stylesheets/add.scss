@@ -2,26 +2,32 @@ html.body{
     padding-bottom: 25px;
 }
 #addcon{
-    margin-top:10px;border:1px solid #CCCCCC;
+    margin-top:10px;border:1px solid #CCCCCC;height:100%;
     ul{
         width:100%;background:#efefef;height:40px;
         li{
-           list-style: none;float:left;padding:0 20px;line-height: 40px;font-size:12px;    
+           float:left;list-style: none;padding:0 20px;line-height:40px;font-size:12px;color:#222;   
+            }
         }
         li:nth-of-type(1){
             margin-left: 8px;font-weight: 900;background:#fefefe;
         }
     }
-    
-form{
-    background:#fff;width:100%;padding:14px 0 45px;
-    div{
+    form{
+        background:#fff;width:100%;padding:14px 0 45px;height:100%;
+        .btn{
+            background: #91C4D0;color:#335B64;font-weight: 400;
+        }
+        button{
+            font-size:12px;
+        }
+        div{
         margin:0 auto;width:auto;position: relative;width:610px;clear:both;
         span{
             font-size:12px;color:#7F7F7F;line-height:20px;padding-right:8px;float:left;margin-top:10px;
         }
         span:nth-of-type(1){
-            padding:0 8px;line-height:40px;float:left;font-size:14px;color: #333;margin:0;
+            padding:0 8px;line-height:40px;float:left;font-weight:900;color: #333;margin:0;
         }
         input{
             width:195px;height:19px;float:left;margin:10px 50px 0 0;
@@ -40,4 +46,6 @@ form{
         }
     }
 }
-}
+    
+
+
