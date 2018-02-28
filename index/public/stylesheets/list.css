@@ -2,7 +2,7 @@
   height: 31px;
   border: 1px solid #ccc;
   padding: 5px;
-  background: #E9E9E9;
+  background: #f3f3f3 url("../images/th_bg.gif") repeat-x;
   font-size: 14px;
   margin: 10px 0; }
   .serch i {
@@ -27,10 +27,10 @@ table {
   width: 100%; }
   table thead tr {
     height: 45px;
-    background: #E7E1CD; }
+    background: #f3f3f3 url("../images/th_bg.gif") repeat-x; }
   table tbody tr {
     height: 59px;
-    background: #F7F7F7; }
+    background: #fff; }
     table tbody tr .icon-duigou {
       color: lawngreen; }
     table tbody tr .icon-error {

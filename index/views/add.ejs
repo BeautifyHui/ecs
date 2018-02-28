@@ -28,7 +28,9 @@
 		</ul>
 		<form action="#">
 			<div>
-				<i> </i><span>商品名称：</span><input type="text" />
+				<i> </i>
+				<span>商品名称：</span>
+				<input type="text" />
 				<div></div>
 				<input type="hidden" />
 				<select name="">
@@ -43,7 +45,8 @@
 			<div>
 				<i class="iconfont icon-bangzhu-yin"></i>
 				<span>商品货号：</span>
-				<input type="text" /><br />
+				<input type="text" />
+				<br />
 				<span>如果您不输入货号，系统将会自动生成一个唯一的货号</span>
 			</div>
 			<div>
@@ -61,11 +64,16 @@
 					<option value="">&nbsp;&nbsp;短裤</option>
 				</select>
 				<button>添加分类</button>
+				<input type="text" style="height:19px;width:auto;float:none;margin:10px 0 0"/>
+				<button>确定</button>
+				<button>分类管理</button>
+				<button><<</button>
+				<em>*</em>
 			</div>
 			<div>
 				<i></i>
 				<span>扩展分类：</span>
-				<button>添加</button>
+				<button style="background:red;width:66px;height:26px;margin-top:6px;border:none;color:#fff">添加</button>
 			</div>
 			<div>
 				<i></i>
@@ -82,15 +90,107 @@
 					<option value="">&nbsp;&nbsp;短裤</option>
 				</select>
 				<button>添加品牌</button>
+				<input type="text" type="text" style="height:19px;width:auto;float:none;margin:10px 0 0"/>
+				<button>确定</button>
+				<button>分类管理</button>
+				<button><<</button>
 			</div>
 			<div>
 				<i></i>
 				<span>本店售价：</span>
-				<input type="text" />
+				<input type="text" style="margin-right:5px;"/>
 				<button>按市场价值计算</button>
 				<em>*</em>
 			</div>
+			<div>
+				<i class="iconfont icon-bangzhu-yin"></i>
+				<span>会员价格：</span>
+				<span >注册用户</span>
+				<input type="text" style="width:62px;margin-right: 0;"/> 
+				<span > 代销用户</span> 
+				<input type="text" style="width:62px;margin-right: 0;"/>
+				<span> VIP</span>  
+				<input type="text" style="width:62px;margin-right: 0;"/>
+				<br />
+				<span>会员价格为-1时表示会员价格按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</span>
+			</div>
+			<div>
+				<i class="iconfont icon-bangzhu-yin"></i>
+				<span>商品优惠价格：</span>
+				<span style="line-height:20px;margin-top:10px">[+1]优惠数量</span> 
+				<input type="text" style="width:62px;margin-right: 0;" /> 
+				<span style="line-height:20px;margin-top:10px"> 优惠价格</span> 
+				<input type="text" style="width:62px;margin-right: 0;"/>
+				<br />
+				<span>购买数量达到优惠数量时享受的优惠价格</span>
+			</div>
+			<div>
+				<span>市场售价：</span>
+				<input type="text" style="margin-right: 5px;"/>
+				<button style="width:60px;background: #ccc;margin-top:10px;">取整数</button>
+			</div>
+			<div>
+				<span>虚拟销量：</span>
+				<input type="text" />
+			</div>
+			<div>
+				<i class="iconfont icon-bangzhu-yin"></i>
+				<span>赠送消费积分数：</span>
+				<input type="text" />
+				<br />
+				<span>购买该商品时赠送消费积分数,-1表示按商品价格赠送</span>
+			</div>
+			<div>
+				<i class="iconfont icon-bangzhu-yin"></i>
+				<span>赠送等级积分数：</span>
+				<input type="text" />
+				<span>购买该商品时赠送等级积分数,-1表示按商品价格赠送</span>
+			</div>
+			<div>
+				<i class="iconfont icon-bangzhu-yin"></i>
+				<span>积分购买金额：</span>
+				<input type="text" />
+				<span>(此处需填写金额)购买该商品时最多可以使用积分的金额</span>
+			</div>
+			<div>
+				<input type="checkbox" style="width:auto;height:auto;margin:16px 0 0;"/>
+				<span>促销价：</span>
+				<input type="text" />
+			</div>
+			<div>
+				<span>促销日期：</span>
+				<input type="text" style="width:62px;margin-right: 0;"/>
+				<button style="background:red;width:66px;height:26px;margin:8px 10px 0;border:none;color:#fff;float:left">选择</button>
+				<span>-</span>
+				<input type="text" style="width:62px;margin-right: 0;"/>
+				<button style="background:red;width:66px;height:26px;border:none;color:#fff;float:left;margin:8px 10px 0">选择</button>
+			</div>
+			<div>
+				<span> 上传商品图片：</span>
+				<input type="file" style="float:none"/>
+				<br />
+				<input type="text" placeholder="商品图片外部URL"/>
+			</div>
+			<div style="margin-bottom: 44px;">
+				<span style="padding-bottom: 45px;">上传商品缩略图：</span>
+				<input type="file" style="float:none" />
+				<br />
+				<input type="text" placeholder="商品缩略图外部URL"/>
+			<br /><br />
+				<input type="checkbox" style="width:auto;height:auto;margin:5px 10px 5px 0;float:left" />
+				<p style="line-height:20px;float:left">自动生成商品缩略图</p>
+			</div>
+			<div>
+				<section style="margin:0 auto;width:350px">
+					<input type="submit" style="background:red;width:66px;height:26px;margin-top:6px;border:none;color:#fff" value="确定"/>
+					<button style="background:red;width:66px;height:26px;margin-top:6px;border:none;color:#fff">重置</button>
+				</section>
+			</div>
 		</form>
+	</div>
+	<div id="bottom">
+		<p>共执行 9 个查询，用时 0.024420 秒，Gzip 已禁用，内存占用 3.585 MB</p>
+		<p>版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。</p>
 	</div>
 </body>
 </html>

@@ -1,9 +1,12 @@
+html.body {
+  padding-bottom: 25px; }
+
 #addcon {
   margin-top: 10px;
   border: 1px solid #CCCCCC; }
   #addcon ul {
     width: 100%;
-    background: #E9E9E9;
+    background: #efefef;
     height: 40px; }
     #addcon ul li {
       list-style: none;
@@ -14,27 +17,31 @@
     #addcon ul li:nth-of-type(1) {
       margin-left: 8px;
       font-weight: 900;
-      background: #FFF; }
+      background: #fefefe; }
   #addcon form {
     background: #fff;
     width: 100%;
-    float: left;
-    padding-top: 14px; }
+    padding: 14px 0 45px; }
     #addcon form div {
       margin: 0 auto;
       width: auto;
       position: relative;
-      width: 600px;
+      width: 610px;
       clear: both; }
       #addcon form div span {
-        padding: 0 8px;
-        line-height: 40px;
-        float: left; }
-      #addcon form div span:nth-of-type(2) {
         font-size: 12px;
         color: #7F7F7F;
         line-height: 20px;
-        padding: 0; }
+        padding-right: 8px;
+        float: left;
+        margin-top: 10px; }
+      #addcon form div span:nth-of-type(1) {
+        padding: 0 8px;
+        line-height: 40px;
+        float: left;
+        font-size: 14px;
+        color: #333;
+        margin: 0; }
       #addcon form div input {
         width: 195px;
         height: 19px;
