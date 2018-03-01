@@ -30,7 +30,7 @@
 			<div>
 				<i> </i>
 				<span>商品名称：</span>
-				<input type="text" />
+				<input type="text" id="goodname" />
 				<div></div>
 				<input type="hidden" />
 				<select name="">
@@ -45,7 +45,7 @@
 			<div>
 				<i class="iconfont icon-bangzhu-yin"></i>
 				<span>商品货号：</span>
-				<input type="text" />
+				<input type="text" id="goodnum"/>
 				<br />
 				<span>如果您不输入货号，系统将会自动生成一个唯一的货号</span>
 			</div>
@@ -98,7 +98,7 @@
 			<div>
 				<i></i>
 				<span>本店售价：</span>
-				<input type="text" style="margin-right:5px;"/>
+				<input type="text" style="margin-right:5px;" id="goodprice" value="0"/>
 				<button>按市场价值计算</button>
 				<em>*</em>
 			</div>
@@ -106,11 +106,11 @@
 				<i class="iconfont icon-bangzhu-yin"></i>
 				<span>会员价格：</span>
 				<span >注册用户</span>
-				<input type="text" style="width:62px;margin-right: 0;"/> 
+				<input type="text" style="width:62px;margin-right: 0;" value = "-1"/> 
 				<span > 代销用户</span> 
-				<input type="text" style="width:62px;margin-right: 0;"/>
+				<input type="text" style="width:62px;margin-right: 0;" value="-1"/>
 				<span> VIP</span>  
-				<input type="text" style="width:62px;margin-right: 0;"/>
+				<input type="text" style="width:62px;margin-right: 0;" value="-1"/>
 				<br />
 				<span>会员价格为-1时表示会员价格按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</span>
 			</div>
@@ -125,13 +125,13 @@
 				<span>购买数量达到优惠数量时享受的优惠价格</span>
 			</div>
 			<div>
-				<span>市场售价：</span>
-				<input type="text" style="margin-right: 5px;"/>
+				<span>商品编号：</span>
+				<input type="text" style="margin-right: 5px;" id="goodcode"/>
 				<button style="width:60px;background: #ccc;margin-top:10px;">取整数</button>
 			</div>
 			<div>
 				<span>虚拟销量：</span>
-				<input type="text" />
+				<input type="text" id="goodsale" value="0"/>
 			</div>
 			<div>
 				<i class="iconfont icon-bangzhu-yin"></i>
@@ -154,8 +154,8 @@
 			</div>
 			<div>
 				<input type="checkbox" style="width:auto;height:auto;margin:16px 0 0;"/>
-				<span>促销价：</span>
-				<input type="text" />
+				<span>库存：</span>
+				<input type="text" id="date"/>
 			</div>
 			<div>
 				<span>促销日期：</span>
@@ -182,7 +182,7 @@
 			</div>
 			<div>
 				<section style="margin:0 auto;width:350px">
-					<input type="submit" style="background:red;width:66px;height:26px;margin-top:6px;border:none;color:#fff" value="确定"/>
+					<input type="button" style="background:red;width:66px;height:26px;margin-top:6px;border:none;color:#fff" value="确定" id="certen"/>
 					<button style="background:red;width:66px;height:26px;margin-top:6px;border:none;color:#fff">重置</button>
 				</section>
 			</div>

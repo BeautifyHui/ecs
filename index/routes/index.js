@@ -27,7 +27,7 @@ um.good = [{
 	"sort":09,
 	"date":98,
 	"sale":7
-}]
+}];
 um.save(function(err){
 	 if(err){
 	 	console.log("用户数据错误")
@@ -36,9 +36,9 @@ um.save(function(err){
 
 
 //获取用户名密码进行比对，页面跳转
-router.post('/login',function(req,res){
-	var name=req.body.username;
-	var pwd=req.body.pwd;
+router.get('/login',function(req,res){
+	var name=req.query.username;
+	var pwd=req.query.pwd;
 	log.find({"name":name,"pwd":pwd},function(err,num){
 		if(!err && num.length > 0){
 			console.log("欢迎回来");
@@ -49,9 +49,21 @@ router.post('/login',function(req,res){
 		}
 	})
 })
-
+//添加新商品到数据库
+router.post("/add/goods",function(req,res){
+	um.good.push(JSON.parse(req.body.addG));
+	console.log(um.good)
+	um.save(function(err){
+		if(err){
+			res.send("数据库错误")
+		}else{
+			res.send("成功上传新商品到数据库")
+		}
+	})
+})
 //获取数据库内商品情况
 router.get('/goods',function(req,res){
+	console.log(um.good)
 	var good = um.good;
 	res.send(good);
 })

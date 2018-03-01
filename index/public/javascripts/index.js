@@ -25,9 +25,8 @@ window.onload = function(){
 			return;
 		}
 		$.ajax({
-			type:"post",
-			url:"/login",
-			data:"username="+name+"&pwd="+pwd,
+			type:"GET",
+			url:"/login?username="+name+"&pwd="+pwd,
 			success:function(msg){
 				if(msg == "true"){
 					location.href="users";

@@ -1,14 +1,15 @@
 window.onload=function(){
 	var flag=true;
 	//确定侧边栏高度
-	console.log($(window).height())
 	var h=
 $("html,body").height()-$("#top").height()-$("#nav").height()
 	$("#asideul").css("height",h+"px");
 	$(".move").css("height",h+"px");
 	$("#right").css("height",h+"px");
 	$("#right").css("width",($(window).width()-$("#asideul").width()-$(".move").width()-20)+"px")
+//设置li鼠标点击及滑过事件
 	var lis = $(".li");
+	bigcolor();
 	for(let i = 0; i < lis.length;i++){
 		lis[i].flag=true;
 		$(lis[i]).css("background","#575757 url(../images/menu_"+(i+1)+".png) no-repeat 9px 0")
@@ -18,39 +19,58 @@ $("html,body").height()-$("#top").height()-$("#nav").height()
 				for(var j = 0;j < lis.length;j++){
 					$(lis[j]).css("background","#575757 url(../images/menu_"+(j+1)+".png) no-repeat 9px 0");
 					$(lis[j]).find(".menu").css("display","none");
-					lis[j].flag=true;
 				}
 				$(this).css("background","#474747 url(../images/menu1_"+(i+1)+".png) no-repeat 9px 0");
 				$(this).find(".menu").css("display","block");
+				bigcolor(i);
 				this.flag=false;
 				return;
 			}
 			$(this).css("background","#575757 url(../images/menu_"+(i+1)+".png) no-repeat 9px 0");
 			$(this).find(".menu").css("display","none");
+			bigcolor();
 			this.flag=true;
 		})
-		//设置鼠标滑过侧边栏事件
-		.mouseover(function(){
-			if(flag){
+		}
+//设置鼠标滑过侧边栏事件
+	function bigcolor(num){
+		$(lis).mouseover(function(){
+				$(lis).css("background-color","#575757");
+				if(num || num == 0){
+					$(lis[num]).css("background-color","#474747");
+				}
 				$(this).css("background-color","#474747");
-			}
 		})
 		.mouseout(function(){
-			if(flag){
-				$(this).css("background-color","#575757")
+				$(lis).css("background-color","#575757")
+				if(num || num == 0){
+					$(lis[num]).css("background-color","#474747");
+				
 			}
 		})
 	}
+	
 	//ul里面的ul鼠标滑过点击事件
 	var inli = $(".menu").find("li");
-	$(inli[0]).css("background","#666")
-	for(var i = 1; i < inli.length;i++){
-		$(inli[i]).css("background","#575757")
-		.mouseover(function(){
-			$(this).css("background","#666")
-		}).mouseleave(function(){
-			$(this).css("background","#575757")
+	var at = 0;
+	color(at);
+	for(let i = 0;i < inli.length;i++){
+		$(inli[i]).click(function(){
+			at = i;
+			color(at);
 		})
+	}
+	function color(inum){
+		$(inli).css("background","#575757");
+		$(inli[inum]).css("background","#666");
+		for(let i = 0; i < inli.length;i++){
+			$(inli[i]).mouseover(function(){
+				$(this).css("background","#666");
+			}).mouseleave(function(){
+				$(inli).css("background","#575757");
+				$(inli[inum]).css("background","#666");
+			})
+		}
 	}
 	//视口变化事件
 	$(window).resize(function(){
