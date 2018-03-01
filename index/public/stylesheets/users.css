@@ -21,7 +21,7 @@ a {
   width: 100%;
   background: #333333; }
   #top img {
-    margin: 20px 0 0 30px;
+    padding: 20px 0 0 30px;
     width: 150px; }
   #top ul {
     width: 1000px;
@@ -92,28 +92,28 @@ a {
       #nav ul li a:hover {
         background: #474747; }
 
-aside {
+#asideul {
   overflow-y: scroll;
   color: #fff;
   font-size: 12px;
   line-height: 43px;
   float: left; }
-  aside p {
+  #asideul p {
     background: #333;
     font-size: 14px;
     line-height: 33px;
     text-indent: 28px; }
-  aside ul {
+  #asideul ul {
     background: #575757;
     width: 159px;
     text-indent: 40px; }
-    aside ul li {
+    #asideul ul li {
       border-top: 1px solid #7f7f7f; }
-      aside ul li ul li {
+      #asideul ul li ul li {
         height: 30px;
         line-height: 30px;
         border: none; }
-    aside ul li:hover {
+    #asideul ul li:hover {
       background: #474747 url(../images/menu_1.png) no-repeat 9px 0; }
 
 .move {

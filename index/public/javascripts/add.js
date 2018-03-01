@@ -9,4 +9,6 @@ window.onload = function(){
 			$(forms).fadeOut(0).eq(i).fadeIn(0);
 		})
 	}
+//表单验证
+	
 }

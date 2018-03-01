@@ -9,23 +9,23 @@
 			<div id="logo">
 				<img src="images/shopex.png" alt="" />
 			</div>
-			<form action="/login" method="post" class="form-top" >
+			<form class="form-top" action = "#">
 				<img src="images/ecshop-logo.png" alt="" />
 				<div class="con">
 					<div class="box">
 						<span>
 							<i class="iconfont icon-dengluyemianyonghuming"></i>
-							<input name="username" type="text" placeholder="用户名"/>
+							<input id="username" type="text" placeholder="用户名"/>
 						</span>
 						<span>
 							<i class="iconfont icon-mima"></i>
-							<input name="pwd" type="password" placeholder="密码"/>
+							<input id="pwd" type="password" placeholder="密码"/>
 						</span>
-						<span>
+						<span style="position:relative">
 							<i class="iconfont icon-yanzhengma"></i>
-							<input type="text" placeholder="验证码"/>
+							<input type="text" placeholder="验证码" id="checkin"/><span id="checkinnum" style="position:absolute;right:10px;top:10px;display:block;padding:5px 10px;width:auto;height:auto;background:#DF5000;color:#fff"></span>
 						</span>
-						<input type="submit" class="sub">
+						<input type="submit" class="sub" id="usecheck" value = "登录">
 						<input type="checkbox" class="check"/><em>保存登录信息  </em>
 						<a href="#">忘记密码</a>
 						<a href="#">去店铺首页>></a>
@@ -35,6 +35,5 @@
 		</div>
 	</body>
 </html>
-<script>
-
-</script>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/index.js"></script>

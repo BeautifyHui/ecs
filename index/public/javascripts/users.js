@@ -1,7 +1,9 @@
 window.onload=function(){
 	var flag=true;
 	//确定侧边栏高度
-	var h= $(window).height()-$("#top").height()-$("#nav").height()
+	console.log($(window).height())
+	var h=
+$("html,body").height()-$("#top").height()-$("#nav").height()
 	$("#asideul").css("height",h+"px");
 	$(".move").css("height",h+"px");
 	$("#right").css("height",h+"px");

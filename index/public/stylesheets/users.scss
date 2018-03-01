@@ -11,7 +11,7 @@ a{
 #top{
     height:76px;width:100%;background:#333333;
     img{
-        margin:20px 0 0 30px;width:150px;
+        padding:20px 0 0 30px;width:150px;
     }
     ul{
         width:1000px;position: absolute;top:0;right:0;
@@ -62,7 +62,7 @@ a{
         }
     }
 }
-aside{
+#asideul{
    overflow-y: scroll;color:#fff;font-size:12px;line-height:43px;float:left;
     p{
         background:#333;font-size:14px;line-height:33px;text-indent: 28px;

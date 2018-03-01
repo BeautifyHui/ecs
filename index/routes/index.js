@@ -26,7 +26,7 @@ um.good = [{
 	"goodprice":799,
 	"sort":09,
 	"date":98,
-	"sale":7,
+	"sale":7
 }]
 um.save(function(err){
 	 if(err){
@@ -42,10 +42,10 @@ router.post('/login',function(req,res){
 	log.find({"name":name,"pwd":pwd},function(err,num){
 		if(!err && num.length > 0){
 			console.log("欢迎回来");
-			res.render("users")
+			res.send("true")
 		}else{
 			console.log("用户名或密码错误");
-			res.render("index")
+			res.send("false");
 		}
 	})
 })
