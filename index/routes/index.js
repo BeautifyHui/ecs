@@ -52,7 +52,6 @@ router.get('/login',function(req,res){
 //添加新商品到数据库
 router.post("/add/goods",function(req,res){
 	um.good.push(JSON.parse(req.body.addG));
-	console.log(um.good)
 	um.save(function(err){
 		if(err){
 			res.send("数据库错误")
