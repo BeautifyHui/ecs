@@ -8,6 +8,12 @@ window.onload = function(){
 			$("#makeall").click(function(){
 				$(".makeone").prop("checked",$(this).prop("checked"))
 			})
+//对错符号切换
+			$(".iconfont").click(function(){
+				if(this.classname == "icon-duigou"){
+					$(this).removeClass("icon-duigou").addClass("icon-error")
+				}
+			})
 //搜索调用
 				$("#serchgood").click(function(){
 					var str1 = $("#serchkey").val();

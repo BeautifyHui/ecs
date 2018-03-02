@@ -41,4 +41,15 @@ table {
       font-size: 18px;
       font-weight: 900; }
 
+#page {
+  width: 100%;
+  line-height: 40px;
+  text-align: right;
+  background: #fff;
+  font-size: 12px; }
+  #page i {
+    font-style: normal; }
+  #page input {
+    width: 30px; }
+
 /*# sourceMappingURL=list.css.map */
