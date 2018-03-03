@@ -102,5 +102,4 @@ $("html,body").height()-$("#top").height()-$("#nav").height()
 		var e = e||event;
 		e.stopPropagation();
 	})
-	
 }

@@ -12,30 +12,25 @@ window.onload = function(){
 //表单验证
 	$("#certen").click(function(){
 		if($("#goodname").val() && $("#goodprice").val() ){
-			var addGood = {
-				 goodname: $("#goodname").val(),
-				 goodcode : $("#goodcode").val(),
-				 goodnum : $("#goodnum").val()?$("#goodnum").val():Math.round(Math.random() * 90000000000 + 10000000000),
-				 goodprice : $("#goodprice").val(),
-				 sale : $("#goodsale").val(),
-				 date : $("#date").val(),
-				 sort : Math.round(Math.random() * 100 + 1)
-			}
 			$.ajax({
 				type:"post",
 				url:"/add/goods",
-				data:"addG=" + JSON.stringify(addGood),
+				data:{
+					goodname: $("#goodname").val(),
+					goodcode : $("#goodcode").val(),
+					goodnum : $("#goodnum").val()?$("#goodnum").val():Math.round(Math.random() * 90000000000 + 10000000000),
+					goodprice : $("#goodprice").val(),
+					sale : $("#goodsale").val(),
+					date : $("#date").val(),
+					sort : Math.round(Math.random() * 100 + 1)
+				},
 				success:function(msg){
-					alert(msg);
-//					window.location.reload();
+					alert(msg.msg);
 				}
 				
 			})
 		}else{
 			alert("商品名称必须和价格为必填选项")
 		}
-		
-		
-		
 	})
 }

@@ -41,65 +41,77 @@
 			</tr>
 		</thead>
 		
-			<!--<tr>
+			<tr>
+				<% for(var i = 0;i < list.length;i++){%>
 				<td>
-					<input type="checkbox"/>
-					<span>123</span>
+					<input type="checkbox" class="makeone"/>
+					<span><%= list[i].goodcode%></span>
 				</td>
 				<td>
-					jdkjf
+					<%= list[i].goodname%>
 				</td>
 				<td>
-					0289384938
+					<%= list[i].goodnum%>
 				</td>
 				<td>
-					783.3
+					<%= list[i].goodprice%>
 				</td>
 				<td>
-					<i class="iconfont icon-duigou"></i>
+					<i class="iconfont icon-duigou mrest"></i>
 				</td>
 				<td>
-					<i class="iconfont icon-duigou"></i>
+					<i class="iconfont icon-duigou mrest"></i>
 				</td>
 				<td>
-					<i class="iconfont icon-error"></i>
+					<i class="iconfont icon-error mrest"></i>
 				</td>
 				<td>
-					<i class="iconfont icon-duigou"></i>
+					<i class="iconfont icon-duigou mrest"></i>
 				</td>
 				<td>
-					78
+					<%= list[i].sort%>
 				</td>
-				<td>7</td>
-				<td>0</td>
+				<td><%= list[i].date%></td>
+				<td><%= list[i].sale%></td>
 				<td class="make">
 					<i class="iconfont icon-xiangqingye"></i>
 					<i class="iconfont icon-pencircle"></i>
 					<i class="iconfont icon-edit"></i>
 					<i class="iconfont icon-shanchu"></i>
 				</td>
-			</tr>-->
-		
+			</tr>
+			<%}%>
 	</table>
 	<div id="page">
 		总计 
-		<span>4</span>
+		<span><%= all%></span>
 		个记录&ensp;分为 
-		<span>1</span>
+		<span><%= last%></span>
 		页&ensp;当前第
-		<span>1</span>
+		<span><%= pageNo%></span>
 		页，每页 
-		<input type="number" value = "15"/>
- 		&ensp;|&ensp;第
- 		<span>一</span>
- 		页 
- 		<i>上一页</i>
- 		<i>下一页</i>
- 		<i>最末页 </i>
+		<input type="number" value = "<%= count%>" id="countp"/>
+ 		&ensp;|&ensp;
+ 		<a href="/show?pageNo=1&count=<%= count%>" style="color:#222">第一页 </a>
+ 		<%if(pageNo > 1){%>
+ 		<a href="/show?pageNo=<%= pageNo-1%>&count=<%= count%>" style="color:#222"><i>上一页</i></a>
+ 		<%}%>
+ 		
+ 		<%if(pageNo < last){%>
+ 		<a href="/show?pageNo=<%= pageNo+1%>&count=<%= count%>" style="color:#222"><i>下一页</i></a>
+ 		<%}%>
+ 	
+ 		<a href="/show?pageNo=<%= last%>&count=<%= count%>" style="color:#222"><i>最末页 </i></a>
  		<select name="" id="">
- 			<option value="1">1</option>
+ 			<%for(var i = 1 ;i<last;i++){%>
+ 			<option value="<%= i%>"><%= i%></option>
+ 			<%}%>
  		</select>
  		&ensp;
+	</div>
+		<div id="bottom">
+		<p>共执行 9 个查询，用时 0.024420 秒，Gzip 已禁用，内存占用 3.585 MB</p>
+		<p>版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。</p>
 	</div>
 </body>
 </html>

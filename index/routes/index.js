@@ -11,27 +11,21 @@ router.get('/list', function(req, res, next) {
 router.get('/add',function(req,res,next){
 	res.render('add')
 })
-router.get('/normal',function(req,res,next){
-	res.render('normal')
-})
-//写入用户名及密码
-var um = new log();
-um.name = "123";
-um.pwd = "asd";
-//写入一个商品进行测试
-um.good = [{
-	"goodcode":001,
-	"goodname":"长裙",
-	"goodnum":010202103098,
-	"goodprice":799,
-	"sort":09,
-	"date":98,
-	"sale":7
-}];
-um.save(function(err){
-	 if(err){
-	 	console.log("用户数据错误")
-	 }
+
+//获取数据库内商品情况
+router.get('/show',function(req,res,next){
+	var pageNo =parseInt( req.query.pageNo || 1);
+	var count =parseInt( req.query.count || 10);
+//	(skip)略过n条数据（limit）拿到n条数据,（sort）按照*顺序排列
+	log.find({},function(err,docs){
+		var pagegood = log.find({}).skip((pageNo-1)*count).limit(count).sort({date:-1})
+		var all=docs.length;
+		var last=Math.floor(all / count);
+//	.exec:发送给客户端
+	pagegood.exec(function(err,doc){
+		res.render('list',{list:doc,pageNo:pageNo,count:count,last:last,all:all})
+	})
+	})
 })
 
 
@@ -51,19 +45,38 @@ router.get('/login',function(req,res){
 })
 //添加新商品到数据库
 router.post("/add/goods",function(req,res){
-	um.good.push(JSON.parse(req.body.addG));
+	var um = new log();
+	um.goodname =  req.body.goodname,
+	um.goodcode =  req.body.goodcode,
+	um.goodnum = req.body.goodnum,
+	um.goodprice = req.body.goodprice,
+	um.sale = req.body.sale,
+	um.date = req.body.date,
+	um.sort = req.body.sort
 	um.save(function(err){
-		if(err){
-			res.send("数据库错误")
-		}else{
-			res.send("成功上传新商品到数据库")
+		var result = {
+			status : 1,
+			msg :"成功上传新商品到数据库"
 		}
+		if(err){
+			result = {
+				status : 110,
+				msg :"上传失败！"
+			}
+		}
+		res.send(result);
+		console.log(um)
 	})
 })
-//获取数据库内商品情况
-router.get('/goods',function(req,res){
-	console.log(um.good)
-	var good = um.good;
-	res.send(good);
-})
+
+
+//删除商品
+router.post('/goods/remove',function(req,res){
+		var num = req.body.num;
+		um.good.splice(num,1);
+		um.save(function(err){
+			err?console.log(err):console.log(um.good)
+		})
+	})
+
 module.exports = router;
