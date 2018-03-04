@@ -5,10 +5,18 @@ window.onload = function(){
 		$(".makeone").prop("checked",$(this).prop("checked"))
 	})
 //删除商品
-	$(".icon-shanchu").click(function(){
-		$.post("/goods/remove",{"num":$(this).parent().parent().attr("remove")}
-		)
-		$(this).parent().parent().remove();
+	$(".removegood").click(function(){
+		console.log($(this).attr("gid"))
+		$.ajax({
+			type:"get",
+			url:"/api/remove",
+			data:
+				{_id:$(this).attr("gid")},
+			success:function(msg){
+				console.log(msg.massage);
+				location.reload(true)
+			}
+		});
 	})
 //更改商品信息
 	$(".icon-pencircle").click(function(){
@@ -23,40 +31,38 @@ window.onload = function(){
 		}
 	})
 //分页查询功能
-	$("#countp").change(function(){
-		location.href="/show?pageNo="
-	})
-//搜索调用
+//	$("#countp").change(function(){
+//		location.href="/show?pageNo="
+//	})
+//搜索功能
 	$("#serchgood").click(function(){
 		var str1 = $("#serchkey").val();
-		serchgoods(str1,res);
-	})
-	$(document).keypress(function(e){
-		var e = e || event;
-		var str1 = $("#serchkey").val();
-		if(e.keyCode == 13){
-			serchgoods(str1,res);
-		}
-	})
-
-
-
-
-//搜索功能函数
-	function serchgoods(sstr,res){
-		var reg = RegExp(sstr,"g");
-		var newarr = [];
-			for(var i = 0;i < res.length;i++){
-				for(var j in res[i]){
-					if(reg.test(res[i][j])){
-						if(newarr.indexOf(res[i]) == -1){
-							newarr.push(res[i])
-						}
-					}
-				}
+		console.log(str1)
+		$.ajax({
+			type:"get",
+			url:"/api/serch",
+			data:{
+				keyword:str1
+			},
+			success:function(msg){
+				console.log(msg)
+				
 			}
-			if(newarr){
-				add(newarr)
-		}
-}
+		});
+	})
+//修改功能
+	$(".icon-edit").click(function(){
+		var id = $(this).attr("gid");
+		$.ajax({
+			type:"get",
+			url:"/api/rewrite",
+			data:{
+				id:id
+			},
+			success:function(msg){
+				console.log(msg)
+				location.href="/rewrite"
+			}
+		})
+	})
 }

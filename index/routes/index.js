@@ -20,7 +20,7 @@ router.get('/show',function(req,res,next){
 	log.find({},function(err,docs){
 		var pagegood = log.find({}).skip((pageNo-1)*count).limit(count).sort({date:-1})
 		var all=docs.length;
-		var last=Math.floor(all / count);
+		var last=Math.ceil(all / count);
 //	.exec:发送给客户端
 	pagegood.exec(function(err,doc){
 		res.render('list',{list:doc,pageNo:pageNo,count:count,last:last,all:all})
@@ -28,21 +28,35 @@ router.get('/show',function(req,res,next){
 	})
 })
 
-
-//获取用户名密码进行比对，页面跳转
-router.get('/login',function(req,res){
-	var name=req.query.username;
-	var pwd=req.query.pwd;
-	log.find({"name":name,"pwd":pwd},function(err,num){
-		if(!err && num.length > 0){
-			console.log("欢迎回来");
-			res.send("true")
-		}else{
-			console.log("用户名或密码错误");
-			res.send("false");
+//商品删除
+router.get('/api/remove',function(req,res,next){
+	log.findByIdAndRemove({_id:req.query._id},function(err){
+		var result={
+			status:1,
+			massage:"删除成功"
 		}
+		if(err){
+			result.status = 1140,
+			result.massage = "删除失败"
+		}
+		res.send(result);
 	})
+
 })
+//获取用户名密码进行比对，页面跳转
+//router.get('/login',function(req,res){
+//	var name=req.query.username;
+//	var pwd=req.query.pwd;
+//	log.find({"name":name,"pwd":pwd},function(err,num){
+//		if(!err && num.length > 0){
+//			console.log("欢迎回来");
+//			res.send("true")
+//		}else{
+//			console.log("用户名或密码错误");
+//			res.send("false");
+//		}
+//	})
+//})
 //添加新商品到数据库
 router.post("/add/goods",function(req,res){
 	var um = new log();
@@ -54,6 +68,7 @@ router.post("/add/goods",function(req,res){
 	um.date = req.body.date,
 	um.sort = req.body.sort
 	um.save(function(err){
+		console.log(um)
 		var result = {
 			status : 1,
 			msg :"成功上传新商品到数据库"
@@ -70,13 +85,25 @@ router.post("/add/goods",function(req,res){
 })
 
 
-//删除商品
-router.post('/goods/remove',function(req,res){
-		var num = req.body.num;
-		um.good.splice(num,1);
-		um.save(function(err){
-			err?console.log(err):console.log(um.good)
-		})
+//搜索商品
+router.get('/api/serch',function(req,res,next){
+	var resgs = new RegExp(req.query.keyword,"i");
+	log.find({goodname:{$regex:resgs}},function(err,docs){
+		var result = {
+			status:1,
+			con:docs
+		}
+		if(err){
+			result.status=110,
+			result.con=null
+		}
+		res.send(docs);
 	})
-
+})
+//信息更改
+router.get('/api/rewrite',function(req,res,next){
+	log.find({_id:req.query.id},function(err,docs){
+		res.send("list")
+	})
+})
 module.exports = router;

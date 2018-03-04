@@ -41,8 +41,8 @@
 			</tr>
 		</thead>
 		
-			<tr>
-				<% for(var i = 0;i < list.length;i++){%>
+			<% for(var i = 0;i < list.length;i++){%>
+			<tr class="trgood">
 				<td>
 					<input type="checkbox" class="makeone"/>
 					<span><%= list[i].goodcode%></span>
@@ -76,8 +76,8 @@
 				<td class="make">
 					<i class="iconfont icon-xiangqingye"></i>
 					<i class="iconfont icon-pencircle"></i>
-					<i class="iconfont icon-edit"></i>
-					<i class="iconfont icon-shanchu"></i>
+					<i class="iconfont icon-edit" gid="<%= list[i]._id%>"></i>
+					<i class="iconfont icon-shanchu removegood" gid="<%= list[i]._id%>"></i>
 				</td>
 			</tr>
 			<%}%>
@@ -103,7 +103,7 @@
  	
  		<a href="/show?pageNo=<%= last%>&count=<%= count%>" style="color:#222"><i>最末页 </i></a>
  		<select name="" id="">
- 			<%for(var i = 1 ;i<last;i++){%>
+ 			<%for(var i = 1 ;i<=last;i++){%>
  			<option value="<%= i%>"><%= i%></option>
  			<%}%>
  		</select>
