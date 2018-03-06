@@ -29,7 +29,7 @@ window.onload = function(){
 			url:"/login?username="+name+"&pwd="+pwd,
 			success:function(msg){
 				if(msg == "true"){
-					location.href="users";
+					location.href="/users";
 				}else{
 					alert("用户名或密码错误");
 					window.location.reload();

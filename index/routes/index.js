@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var log = require("../modle/login")
+var log = require("../modle/login");
+var user = require("../modle/user");
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -44,19 +45,27 @@ router.get('/api/remove',function(req,res,next){
 
 })
 //获取用户名密码进行比对，页面跳转
-//router.get('/login',function(req,res){
-//	var name=req.query.username;
-//	var pwd=req.query.pwd;
-//	log.find({"name":name,"pwd":pwd},function(err,num){
-//		if(!err && num.length > 0){
-//			console.log("欢迎回来");
-//			res.send("true")
-//		}else{
-//			console.log("用户名或密码错误");
-//			res.send("false");
-//		}
-//	})
-//})
+var one = new user()
+one.name = "asd";
+one.pwd="123";
+one.save(function(err){
+	if(err){
+		console.log("用户名密码保存失败！")
+	}
+})
+router.get('/login',function(req,res){
+	var name=req.query.username;
+	var pwd=req.query.pwd;
+	user.find({"name":name,"pwd":pwd},function(err,num){
+		if(!err && num.length > 0){
+			console.log("欢迎回来");
+			res.send("true")
+		}else{
+			console.log("用户名或密码错误");
+			res.send("false");
+		}
+	})
+})
 //添加新商品到数据库
 router.post("/add/goods",function(req,res){
 	var um = new log();
